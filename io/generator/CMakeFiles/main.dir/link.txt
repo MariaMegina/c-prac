@@ -1,0 +1,1 @@
+/usr/bin/c++  -g -fsanitize=address -rdynamic CMakeFiles/main.dir/src/main.cpp.o CMakeFiles/main.dir/src/generate.cpp.o -o main 

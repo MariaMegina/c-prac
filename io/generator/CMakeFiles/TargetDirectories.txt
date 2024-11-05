@@ -1,3 +1,0 @@
-/home/maria/C++ практикум/io/generator/CMakeFiles/main.dir
-/home/maria/C++ практикум/io/generator/CMakeFiles/edit_cache.dir
-/home/maria/C++ практикум/io/generator/CMakeFiles/rebuild_cache.dir

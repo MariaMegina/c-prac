@@ -78,7 +78,7 @@ std::string OperationOnFunctions::ToString() const {
     } else if (oper_ == Operation::sub) {
         return first_->ToString() + " - " + second_->ToString();
     } else if (oper_ == Operation::mul) {
-        return first_->ToString() + " * " + second_->ToString();
+        return "(" + first_->ToString() + ") * (" + second_->ToString() + ")";
     } else if (oper_ == Operation::div) {
         return first_->ToString() + " / " + second_->ToString();
     } else {
@@ -86,9 +86,9 @@ std::string OperationOnFunctions::ToString() const {
     }
 }
 
-double gradientDescent(std::shared_ptr<TFunction> func, unsigned iters) {
+double gradientDescent(std::shared_ptr<TFunction> func, unsigned iters, double x) {
     double step = 0.01;
-    double current_x = 0;
+    double current_x = x;
     for (unsigned i = 0; i < iters; ++i) {
         current_x = current_x - step * func->Value(current_x) * func->Derivative(current_x);
     }

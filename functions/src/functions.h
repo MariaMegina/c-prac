@@ -157,4 +157,4 @@ class funcFactory {
         	static std::shared_ptr<TFunction> Create(FunctionType function_type, std::vector<double> args);
 };
 
-double gradientDescent(std::shared_ptr<TFunction> func, unsigned iters);
+double gradientDescent(std::shared_ptr<TFunction> func, unsigned iters, double x);

@@ -4,40 +4,40 @@
 
 using namespace std;
 
-TEST(ConstructAndStringTests, IdenticalTest) {
+TEST(CreateAndStringTests, IdenticalTest) {
     ASSERT_TRUE(funcFactory::Create(FunctionType::identical)->ToString() == "x");
 }
 
-TEST(ConstructAndStringTests, ConstantTest) {
+TEST(CreateAndStringTests, ConstantTest) {
     auto f = funcFactory::Create(FunctionType::constant, 3);
     ASSERT_TRUE(std::stod(f->ToString()) == 3.0);
 }
 
-TEST(ConstructAndStringTests, PowerTest) {
+TEST(CreateAndStringTests, PowerTest) {
     auto f = funcFactory::Create(FunctionType::power, 3);
     ASSERT_TRUE(f->ToString() == "x^3.000000");
 }
 
-TEST(ConstructAndStringTests, ExponentialTest) {
+TEST(CreateAndStringTests, ExponentialTest) {
     auto f = funcFactory::Create(FunctionType::exponential);
     ASSERT_TRUE(f->ToString() == "e^x");
 }
 
-TEST(ConstructAndStringTests, PolynomialTest) {
+TEST(CreateAndStringTests, PolynomialTest) {
     auto f = funcFactory::Create(FunctionType::polynomial, {1, 2, 3});
     ASSERT_TRUE(f->ToString() == "1.000000 + 2.000000*x^1 + 3.000000*x^2");
 }
 
-TEST(ExceptionsTests, WithoutArgsTest) {
+TEST(ExceptionsTests, NotEnoughTest) {
     ASSERT_THROW(funcFactory::Create(FunctionType::power), std::logic_error);
 }
 
-TEST(ExceptionsTests, OneArgTest) {
+TEST(ExceptionsTests, ExtraTest) {
     ASSERT_THROW(funcFactory::Create(FunctionType::identical, 3), std::logic_error);
 }
 
-TEST(ExceptionsTests, TwoArgsTest) {
-    ASSERT_THROW(funcFactory::Create(FunctionType::identical, {1, 2, 3}), std::logic_error);
+TEST(ExceptionsTests, ExtraExtraTest) {
+    ASSERT_THROW(funcFactory::Create(FunctionType::constant, {1, 2, 3}), std::logic_error);
 }
 
 TEST(ExceptionsTests, InvalidOperationArgTest) {
